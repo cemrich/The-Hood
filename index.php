@@ -12,18 +12,7 @@ wp_enqueue_script('script', get_template_directory_uri().'/js/script.js', null, 
 
 wp_head();
 
-//get_header(); 
-
-/*      
-if (have_posts()) : 
-    while (have_posts()) : the_post();
-        the_title('<h2>', '</h2>');
-        the_content();
-    endwhile;
-else :
-    _e('Sorry, no posts matched your criteria.', 'textdomain');
-endif;
-*/
+//get_header();
 
 echo '<div id="map"></div>';
 

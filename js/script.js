@@ -14,12 +14,11 @@ map.setMaxBounds([
 ]);
 
 map.addLayer(wikimediaLayer);
-setTimeout(function(){ map.invalidateSize(); }, 400);
 
 
 thehood_data.forEach(function(value) {
     console.log(value);
-    
+
     if (!value.lat || !value.lon) {
         return;
     }
