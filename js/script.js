@@ -26,5 +26,5 @@ thehood_data.forEach(function(value) {
     const pos = [value.lat, value.lon];
     L.marker(pos)
         .addTo(map)
-        .bindPopup(value.content);
+        .bindPopup(value.title);
 });
