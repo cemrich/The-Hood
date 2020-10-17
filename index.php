@@ -1,5 +1,5 @@
-<?php
 
+<?php
 wp_enqueue_style('style', get_template_directory_uri().'/style.css');
 wp_enqueue_style('map-style', get_template_directory_uri().'/css/map.css');
 
@@ -8,16 +8,20 @@ wp_enqueue_script('leaflet-script', get_template_directory_uri().'/vendor/leafle
 
 wp_enqueue_script('script', get_template_directory_uri().'/js/script.js', null, false, true);
 
+?>
 
-wp_head();
+<head>
+    <title><?php wp_title(); ?></title>
+    <?php wp_head() ?>
+</head>
 
-//get_header();
+<body>
 
-echo '<div id="map"></div>';
+    <?php get_header(); ?>
 
-//get_sidebar();
-//get_footer();
+    <div id="map"></div>
 
-get_template_part('data-script');
+    <?php get_template_part('data-script'); ?>
+    <?php wp_footer(); ?>
 
-wp_footer();
+</body>

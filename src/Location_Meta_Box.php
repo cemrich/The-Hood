@@ -59,19 +59,20 @@ abstract class Location_Meta_Box
 
         // TODO: hide fields and use map as input
 
-        echo '<table class="form-table">'
-            . wp_nonce_field( self::NONCE_UPDATE_ACTION, self::NONCE_FIELD_NAME ) .
-            '<tbody>
-                <tr>
-                    <th><label for="thehood_meta_pos_lat">Latitude</label></th>
-                    <td><input type="text" id="thehood_meta_pos_lat" name="thehood_meta_pos_lat" value="' . esc_attr($lat) . '" class="regular-text"></td>
-                </tr>
-                <tr>
-                    <th><label for="thehood_meta_pos_lon">Longitude</label></th>
-                    <td><input type="text" id="thehood_meta_pos_lon" name="thehood_meta_pos_lon" value="' . esc_attr($lon) . '" class="regular-text"></td>
-                </tr>
-            </tbody>
-        </table>';
+        echo wp_nonce_field( self::NONCE_UPDATE_ACTION, self::NONCE_FIELD_NAME ) .
+            '<div id="thehood_meta_pos_map"></div>
+            <table class="form-table">
+                <tbody>
+                    <tr>
+                        <th><label for="thehood_meta_pos_lat">Latitude</label></th>
+                        <td><input type="text" id="thehood_meta_pos_lat" name="thehood_meta_pos_lat" value="' . esc_attr($lat) . '" class="regular-text"></td>
+                    </tr>
+                    <tr>
+                        <th><label for="thehood_meta_pos_lon">Longitude</label></th>
+                        <td><input type="text" id="thehood_meta_pos_lon" name="thehood_meta_pos_lon" value="' . esc_attr($lon) . '" class="regular-text"></td>
+                    </tr>
+                </tbody>
+            </table>';
     }
 
 }
