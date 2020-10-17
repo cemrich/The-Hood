@@ -9,7 +9,7 @@ const wikimediaLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{
 const map = new L.map('map', {
     zoomControl: isInteractable
 });
-map.setView(center, 5);
+map.setView(center, 17);
 map.setMinZoom(14);
 map.setMaxBounds([
     [center[0] - panRadius, center[1] - panRadius],
@@ -19,19 +19,42 @@ map.setMaxBounds([
 map.addLayer(wikimediaLayer);
 
 
-if (isInteractable) {
-    thehood_data.forEach(function(value) {
-        console.log(value);
-    
-        if (!value.lat || !value.lon) {
-            return;
-        }
-    
-        const pos = [value.lat, value.lon];
-        L.marker(pos)
-            .addTo(map)
-            .bindPopup(value.title);
+function hidePostOverlays() {    
+    document.querySelector('#main-wrapper').style.pointerEvents = 'none';
+    document.querySelectorAll('article').forEach(function (article) {
+        article.style.display = 'none';
     });
-} else {
+}
 
+function showPostOverlay(id) {
+    document.querySelector('#main-wrapper').style.pointerEvents = 'auto';
+    document.querySelector('article[data-post-id="' + id + '"]').style.display = 'block';
+}
+
+function canBeDisplayed(post) {
+    return !!post.lat && !!post.lon;
+}
+
+function displayMarker(post) {
+    const pos = [post.lat, post.lon];
+    const marker = L.marker(pos)
+        .addTo(map);
+
+    marker.on('click', function () {
+        showPostOverlay(post.id); 
+    });
+}
+
+if (isInteractable) {
+    hidePostOverlays();
+
+    thehood_data
+        .filter(canBeDisplayed)
+        .forEach(displayMarker);
+
+    document.querySelector('#main-wrapper').addEventListener('click', function (e) {
+        if (e.target.localName != 'article') {
+            hidePostOverlays();
+        }
+    });
 }

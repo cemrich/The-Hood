@@ -1,5 +1,11 @@
 <?php
 
+$is_map_interactable = !is_singular() && !is_page() && !is_category();
+
+if (!$is_map_interactable) {
+    return;
+}
+
 $arr = array();
 
 while ( have_posts() ) : the_post(); 
