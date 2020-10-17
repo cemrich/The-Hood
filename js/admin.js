@@ -15,7 +15,7 @@
             const latField = jQuery('#thehood_meta_pos_lat');
             const lonField = jQuery('#thehood_meta_pos_lon');
 
-            const position = [latField.val(), lonField.val()];
+            const position = [latField.val() || 49.85672, lonField.val() || 8.63896];
             const marker = L.marker(position, { draggable:'true' });
             map.setView(position, 16);
 
