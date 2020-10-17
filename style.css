@@ -19,6 +19,7 @@ html, body {
     padding-left: 1em;
     padding-right: 1em;
     box-sizing: border-box;
+    height: 3em;
 }
 
 #header .title-wrapper {
