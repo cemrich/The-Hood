@@ -6,9 +6,7 @@ const wikimediaLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 
-const map = new L.map('map', {
-    zoomControl: isInteractable
-});
+const map = new L.map('map');
 map.setView(center, 17);
 map.setMinZoom(14);
 map.setMaxBounds([

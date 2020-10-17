@@ -1,6 +1,6 @@
 <?php
 
-$is_map_interactable = !is_singular() && !is_page() && !is_category();
+$is_map_interactable = $args['is_map_interactable'];
 
 if (!$is_map_interactable) {
     return;

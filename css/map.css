@@ -7,6 +7,10 @@
     z-index: 0;
 }
 
+#map:not([data-interactable]) .leaflet-control-container {
+    display: none;
+}
+
 .leaflet-top {
     margin-top: 4em;
 }

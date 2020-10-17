@@ -4,7 +4,11 @@
 
     <?php get_header(); ?>
 
-    <div id="map"></div>
+    <?php 
+        $is_map_interactable = !is_singular() && !is_page() && !is_category();
+    ?>
+
+    <div id="map" <?php if ($is_map_interactable) echo "data-interactable"; ?>></div>
     
     <div id="main-wrapper">
         <main>
@@ -19,7 +23,7 @@
         </main>
     </div>
 
-    <?php get_template_part('src/part_data-script'); ?>
+    <?php get_template_part('src/part_data-script', null, array('is_map_interactable' => $is_map_interactable)); ?>
 
     <?php wp_footer(); ?>
 
