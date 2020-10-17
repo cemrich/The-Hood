@@ -3,8 +3,8 @@
         <h1>
             <a href="<?php echo home_url(); ?>/"><?php bloginfo( 'name' ); ?></a>
         </h1>
-        <div class="description">
-            <?php bloginfo( 'description' ); ?>
-        </div>
     </div>
+    
+    <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+
 </header>

@@ -15,10 +15,41 @@ html, body {
     background-color: rgba(255, 255, 255, 0.8);
     width: 100%;
     z-index: 1;
-    padding: 1em;
+    padding: 0.4em;
+    padding-left: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
+}
+
+#header .title-wrapper {
+    display: inline-block;
+    margin-right: 2em;
 }
 
 #header h1 {
     font-size: 1.3em;
     margin: 0;
+}
+
+#header .menu-main-container {
+    display: inline-block;
+}
+
+#header .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#header .menu li {
+    display: inline-block;
+}
+
+#header .menu li.current-menu-item {
+    background-color: white;
+}
+
+#header .menu li a {
+    padding: 0.5em;
+    display: block;
 }
