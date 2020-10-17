@@ -6,7 +6,11 @@ html, body {
     margin: 0;
     height: 100%;
     width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+/* header */
 
 #header {
     position: absolute;
@@ -53,4 +57,25 @@ html, body {
 #header .menu li a {
     padding: 0.5em;
     display: block;
+}
+
+
+/* page / post display */
+
+#main-wrapper {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+}
+
+main {
+    background-color: white;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 4em;
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
 }
