@@ -1,3 +1,5 @@
+/* globals jQuery */
+
 (function () {
 
     function onPageLoaded() {
