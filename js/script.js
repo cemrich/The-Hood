@@ -44,7 +44,7 @@
     if (isInteractable) {
         hidePostOverlays();
 
-        thehood_data
+        thehood_data.posts
             .filter(canBeDisplayed)
             .forEach(displayMarker);
 
