@@ -1,6 +1,5 @@
 const isInteractable = typeof(thehood_data) !== 'undefined';
 const center = [49.85672, 8.63896];
-const panRadius = 0.01;
 
 const wikimediaLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -9,11 +8,6 @@ const wikimediaLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{
 const map = new L.map('map');
 map.setView(center, 17);
 map.setMinZoom(14);
-map.setMaxBounds([
-    [center[0] - panRadius, center[1] - panRadius],
-    [center[0] + panRadius, center[1] + panRadius]
-]);
-
 map.addLayer(wikimediaLayer);
 
 
