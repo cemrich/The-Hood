@@ -12,5 +12,9 @@
 }
 
 .leaflet-top {
-    margin-top: 4em;
+    margin-top: 60px;
+}
+
+.leaflet-top .leaflet-control.leaflet-control-zoom  {
+    margin-top: 0;
 }
