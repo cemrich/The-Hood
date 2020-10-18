@@ -2,11 +2,6 @@
 Theme Name: The Hood
 */
 
-:root {
-    --thehood-primary: #006ab6;
-    --thehood-parimary-dark: #005a87;
-}
-
 html, body {
     margin: 0;
     height: 100%;

@@ -13,5 +13,14 @@ wp_enqueue_script('script', get_template_directory_uri().'/js/script.js', null, 
 
 <head>
     <title><?php wp_title(); ?></title>
+
+    <style>
+        :root {
+            --thehood-primary: <?php echo get_theme_mod( 'color_primary' ) ?>;
+            --thehood-primary-dark: <?php echo get_theme_mod( 'color_primary_dark' ) ?>;
+        }
+    </style>
+
     <?php wp_head() ?>
+
 </head>
