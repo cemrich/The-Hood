@@ -1,0 +1,10 @@
+{
+  "browser": true,
+  "node": true,
+  "devel": true,
+  "strict": "implied",
+  "esversion": 6,
+  "globals": {
+    "L": true
+  }
+}
