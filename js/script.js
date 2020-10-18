@@ -51,7 +51,7 @@ if (isInteractable) {
         .forEach(displayMarker);
 
     document.querySelector('#main-wrapper').addEventListener('click', function (e) {
-        if (e.target.localName != 'article') {
+        if (!e.path.find(e => e.localName=='article')) {
             hidePostOverlays();
         }
     });
