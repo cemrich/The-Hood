@@ -5,7 +5,6 @@ abstract class Location_Post
     const LOCATION_POST_TYPE = 'thehood_location';
 
     public static function init() {
-        // TODO: set icon for admin area
         register_post_type(self::LOCATION_POST_TYPE,
             array(
                 'labels'                => array(
@@ -23,7 +22,8 @@ abstract class Location_Post
                 'show_in_menu'          => true,
                 'show_in_nav_menus'     => true,
                 'show_in_admin_bar'     => true,
-                'show_in_rest'          => true
+                'show_in_rest'          => true,
+                'menu_icon'             => 'dashicons-location'
             )
         );
     }
