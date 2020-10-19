@@ -105,3 +105,14 @@ article {
 body.error404 {
     background-color: #eee;
 }
+
+
+/* image gallery */
+
+.wp-block-gallery .blocks-gallery-grid .blocks-gallery-item figure img,
+.wp-block-gallery .blocks-gallery-grid .blocks-gallery-item figure {
+    height: auto;
+}
+.wp-block-gallery .blocks-gallery-grid .blocks-gallery-item figure figcaption {
+    pointer-events: none;
+}
