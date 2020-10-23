@@ -10,9 +10,25 @@
     });
 
     const map = new L.map('map');
+    const locationsLayer = L.layerGroup();
+    const todayLayer = L.layerGroup([wikimediaLayer]);
+
     map.setView(center, 17);
     map.setMinZoom(14);
-    map.addLayer(wikimediaLayer);
+    map.addLayer(todayLayer);
+    map.addLayer(locationsLayer);
+
+    var baseLayers = {
+        "Heute": todayLayer,
+    };
+    var overlays = {
+        "Orte": locationsLayer
+    };
+    
+    const baserLayerControl = L.control.layers(baseLayers, overlays, { 
+        collapsed: false 
+    });
+    baserLayerControl.addTo(map);
 
 
     function hidePostOverlays() {    
@@ -34,11 +50,15 @@
     function displayMarker(post) {
         const pos = [post.lat, post.lon];
         const marker = L.marker(pos)
-            .addTo(map);
+            .addTo(locationsLayer);
 
         marker.on('click', function () {
             showPostOverlay(post.id); 
         });
+    }
+
+    function displayLayer(layer) {
+        baserLayerControl.addBaseLayer(todayLayer, layer.title);
     }
 
     if (isInteractable) {
@@ -47,6 +67,8 @@
         thehood_data.posts
             .filter(canBeDisplayed)
             .forEach(displayMarker);
+
+        thehood_data.layers.forEach(displayLayer);
 
         document.querySelector('#main-wrapper').addEventListener('click', function (e) {
             if (!e.path.find(e => e.localName=='article')) {

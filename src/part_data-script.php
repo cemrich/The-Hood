@@ -6,9 +6,10 @@ if (!$is_map_interactable) {
     return;
 }
 
+$location_query = new WP_Query( array( 'post_type' => 'thehood_location' ) );
 $post_arr = array();
 
-while ( have_posts() ) : the_post(); 
+while ( $location_query->have_posts() ) : $location_query->the_post(); 
     $post_meta = get_post_meta($post->ID);
     $post_arr[] = (object) [
         'id' => $post->ID,
@@ -19,8 +20,23 @@ while ( have_posts() ) : the_post();
     ];
 endwhile;
 
+wp_reset_postdata();
+
+$layer_arr = array();
+$layer_query = new WP_Query( array( 'post_type' => 'thehood_layer' ) );
+
+while ( $layer_query->have_posts() ) : $layer_query->the_post(); 
+    $post_meta = get_post_meta($post->ID);
+    $layer_arr[] = (object) [
+        'id' => $post->ID,
+        'title' => $post->post_title
+    ];
+endwhile;
+
+
 $data = (object) [
-    'posts' => $post_arr
+    'posts'  => $post_arr,
+    'layers' => $layer_arr
 ];
 
 ?>
