@@ -5,7 +5,7 @@
     <?php get_header(); ?>
 
     <?php 
-        $is_map_interactable = !is_singular() && !is_page() && !is_category();
+        $is_map_interactable = !is_singular() && !is_page();
     ?>
 
     <div id="map" <?php if ($is_map_interactable) echo "data-interactable"; ?>></div>

@@ -23,15 +23,22 @@ abstract class Location_Post
                 'show_in_nav_menus'     => true,
                 'show_in_admin_bar'     => true,
                 'show_in_rest'          => true,
-                'menu_icon'             => 'dashicons-location'
+                'menu_icon'             => 'dashicons-location',
+                'taxonomies'            => array('category')
             )
         );
     }
     
     public static function alterQuery($query) {
+        if ( !is_admin() && is_category() &&  $query->is_main_query() ) {
+            $types = get_taxonomy( 'category' )->object_type;
+            $query->set( 'post_type', $types );
+        }
+
         if ( is_home() && $query->is_main_query() ) {
             $query->set( 'post_type', array( self::LOCATION_POST_TYPE ) );
         }
+
         return $query;
     }
 
