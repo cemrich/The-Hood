@@ -2,10 +2,6 @@
 
 $is_map_interactable = $args['is_map_interactable'];
 
-if (!$is_map_interactable) {
-    return;
-}
-
 $location_query = new WP_Query( array( 'post_type' => 'thehood_location' ) );
 $post_arr = array();
 
@@ -35,8 +31,11 @@ endwhile;
 
 
 $data = (object) [
-    'posts'  => $post_arr,
-    'layers' => $layer_arr
+    'isInteractable' => $is_map_interactable,
+    'posts'        => $post_arr,
+    'layers'       => $layer_arr,
+    'center'       => [49.85672, 8.63896],
+    'initialZoom'  => 17
 ];
 
 ?>

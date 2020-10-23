@@ -2,9 +2,6 @@
 
 (function() {
 
-    const isInteractable = typeof(thehood_data) !== 'undefined';
-    const center = [49.85672, 8.63896];
-
     const wikimediaLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
@@ -13,8 +10,7 @@
     const locationsLayer = L.layerGroup();
     const todayLayer = L.layerGroup([wikimediaLayer]);
 
-    map.setView(center, 17);
-    map.setMinZoom(14);
+    map.setView(thehood_data.center, thehood_data.initialZoom);
     map.addLayer(todayLayer);
     map.addLayer(locationsLayer);
 
@@ -61,7 +57,7 @@
         baserLayerControl.addBaseLayer(todayLayer, layer.title);
     }
 
-    if (isInteractable) {
+    if (thehood_data.isInteractable) {
         hidePostOverlays();
 
         thehood_data.posts
