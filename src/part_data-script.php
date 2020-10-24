@@ -35,7 +35,7 @@ $data = (object) [
     'posts'        => $post_arr,
     'layers'       => $layer_arr,
     'center'       => [49.85672, 8.63896],
-    'initialZoom'  => 17
+    'initialZoom'  => Settings::get_setting( 'initial_zoom_level' )
 ];
 
 ?>
