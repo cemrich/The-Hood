@@ -16,8 +16,8 @@ wp_enqueue_script('script', get_template_directory_uri().'/js/script.js', null, 
 
     <style>
         :root {
-            --thehood-primary: <?php echo get_theme_mod( 'color_primary' ) ?>;
-            --thehood-primary-dark: <?php echo get_theme_mod( 'color_primary_dark' ) ?>;
+            --thehood-primary: <?php echo Settings::get_setting( 'color_primary' ) ?>;
+            --thehood-primary-dark: <?php echo Settings::get_setting( 'color_primary_dark' ) ?>;
         }
     </style>
 
