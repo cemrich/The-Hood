@@ -2,7 +2,8 @@
 
 abstract class Customizer
 {
-    public static function register( $wp_customize ) {
+    public static function register_color_primary( $wp_customize ) {
+
         $wp_customize->add_setting( 'color_primary', array(
             'default' => Settings::get_default( 'color_primary' ),
             'sanitize_callback' => 'sanitize_hex_color',  
@@ -14,7 +15,9 @@ abstract class Customizer
             'label' => __( 'Primärfarbe', 'theme_textdomain' ),
             'section' => 'colors',
         ) ) );
+    }
 
+    public static function register_color_primary_dark( $wp_customize ) {
 
         $wp_customize->add_setting( 'color_primary_dark', array(
             'default' => Settings::get_default( 'color_primary_dark' ),
@@ -27,7 +30,9 @@ abstract class Customizer
             'label' => __( 'Primärfarbe (Dunkel)', 'theme_textdomain' ),
             'section' => 'colors',
         ) ) );
+    }
 
+    public static function register_initial_zoom_level( $wp_customize ) {
 
         $wp_customize->add_setting( 'initial_zoom_level', array(
             'default' => Settings::get_default( 'initial_zoom_level' ),
@@ -46,6 +51,17 @@ abstract class Customizer
                 'step' => 1
             )
         ) );
+    }
+
+    public static function register_map_center( $wp_customize ) {
+
+    }
+
+    public static function register( $wp_customize ) {
+        self::register_color_primary( $wp_customize );
+        self::register_color_primary_dark( $wp_customize );
+        self::register_initial_zoom_level( $wp_customize );
+        self::register_map_center( $wp_customize );
     }
 }
 
