@@ -15,7 +15,7 @@ abstract class Location_Post
                 'has_archive'           => false,
                 'hierarchical'          => false,
                 'rewrite'               => array('slug' => 'locations'),
-                'supports'              => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields'),
+                'supports'              => array('title', 'editor', 'revisions', 'custom-fields'),
                 'can_export'            => true,
                 'capability_type'       => 'post',
                 'show_ui'               => true,
