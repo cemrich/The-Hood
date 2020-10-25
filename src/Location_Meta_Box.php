@@ -57,8 +57,6 @@ abstract class Location_Meta_Box
         $lat = get_post_meta($post->ID, 'thehood_meta_pos_lat', true);
         $lon = get_post_meta($post->ID, 'thehood_meta_pos_lon', true);
 
-        // TODO: hide fields and use map as input
-
         echo wp_nonce_field( self::NONCE_UPDATE_ACTION, self::NONCE_FIELD_NAME ) .
             '<div id="thehood_meta_pos_map"></div>
             <table class="form-table">
