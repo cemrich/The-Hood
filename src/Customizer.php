@@ -54,7 +54,24 @@ abstract class Customizer
     }
 
     public static function register_map_center( $wp_customize ) {
-
+        $wp_customize->add_setting( 'map_center_lat', array(
+            'default' => Settings::get_default( 'map_center_lat' ),
+            'sanitize_callback' => [ 'Customizer', 'sanitize_float' ],
+            'type' => 'theme_mod',
+            'capability' => 'edit_theme_options',
+            'transport' => 'refresh'
+        ) );
+        $wp_customize->add_setting( 'map_center_lon', array(
+            'default' => Settings::get_default( 'map_center_lon' ),
+            'sanitize_callback' => [ 'Customizer', 'sanitize_float' ],
+            'type' => 'theme_mod',
+            'capability' => 'edit_theme_options',
+            'transport' => 'refresh'
+        ) );
+    }
+    
+    public static function sanitize_float( $input ) {
+        return filter_var($input, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     }
 
     public static function register( $wp_customize ) {
