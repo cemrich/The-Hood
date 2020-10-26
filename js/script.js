@@ -54,7 +54,20 @@
     }
 
     function displayLayer(layer) {
-        baserLayerControl.addBaseLayer(todayLayer, layer.title);
+        let boundingBox = L.latLngBounds(layer.boundingBox);
+        boundingBox = boundingBox.getCenter().equals([0, 0]) ? null : boundingBox;
+
+        const tileLayer = L.tileLayer(layer.tileUrl, {
+            attribution: layer.attribution,
+            tms: false,
+            minNativeZoom: layer.minZoom, 
+            maxNativeZoom: layer.maxZoom,
+            bounds: boundingBox
+        });
+        const layerGroup = L.layerGroup([todayLayer, tileLayer]);
+        baserLayerControl.addBaseLayer(layerGroup, layer.title);
+
+        layerGroup.setZIndex(10);
     }
 
     if (thehood_data.isInteractable) {

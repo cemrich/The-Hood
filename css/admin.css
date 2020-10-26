@@ -5,3 +5,7 @@
 #thehood_location_box_id .form-table {
     display: none;
 }
+
+#thehood_layer_tiles_box_id input {
+    width: 100%;
+}

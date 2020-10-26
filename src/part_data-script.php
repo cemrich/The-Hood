@@ -25,7 +25,15 @@ while ( $layer_query->have_posts() ) : $layer_query->the_post();
     $post_meta = get_post_meta($post->ID);
     $layer_arr[] = (object) [
         'id' => $post->ID,
-        'title' => $post->post_title
+        'title' => $post->post_title,
+        'tileUrl' => $post_meta['thehood_meta_tile_url'][0],
+        'attribution' => $post_meta['thehood_meta_attribution'][0],
+        'minZoom'  => (int) $post_meta['thehood_meta_zoom_min'][0],
+        'maxZoom'  => (int) $post_meta['thehood_meta_zoom_max'][0],
+        'boundingBox' => [
+            [ (float) $post_meta['thehood_meta_bounding_min_lat'][0], (float) $post_meta['thehood_meta_bounding_min_lon'][0] ],
+            [ (float) $post_meta['thehood_meta_bounding_max_lat'][0], (float) $post_meta['thehood_meta_bounding_max_lon'][0] ]
+        ]
     ];
 endwhile;
 

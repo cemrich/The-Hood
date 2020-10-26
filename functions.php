@@ -3,6 +3,7 @@
 include 'src/settings.php';
 include 'src/Location_Meta_Box.php';
 include 'src/Location_Post.php';
+include 'src/Layer_Meta_Box.php';
 include 'src/Layer_Post.php';
 include 'src/Nav_Menus.php';
 include 'src/Customizer.php';
