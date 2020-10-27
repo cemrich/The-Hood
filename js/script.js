@@ -2,8 +2,8 @@
 
 (function() {
 
-    const wikimediaLayer = L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png', {
-        attribution: '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia maps</a> | Map data © <a href="http://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    const wikimediaLayer = L.tileLayer('https://a.tile.openstreetmap.de/{z}/{x}/{y}.png ', {
+        attribution: '<a href="http://www.openstreetmap.org/">Karte hergestellt aus OpenStreetMap-Daten</a> | Lizenz: <a href="http://opendatacommons.org/licenses/odbl/">Open Database License (ODbL)</a>'
     });
 
     const map = new L.map('map');
