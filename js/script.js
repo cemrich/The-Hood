@@ -80,9 +80,15 @@
         thehood_data.layers.forEach(displayLayer);
 
         document.querySelector('#main-wrapper').addEventListener('click', function (e) {
-            if (!e.path.find(e => e.localName=='article')) {
-                hidePostOverlays();
-            }
+            var targetElement = e.target;
+            do {
+                if (targetElement.localName == 'article') {
+                    return;
+                }
+                targetElement = targetElement.parentNode;
+            } while (targetElement);
+
+            hidePostOverlays();
         });
     }
 
