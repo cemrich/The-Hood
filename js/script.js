@@ -6,8 +6,18 @@
         attribution: '<a href="http://www.openstreetmap.org/">Karte hergestellt aus OpenStreetMap-Daten</a> | Lizenz: <a href="http://opendatacommons.org/licenses/odbl/">Open Database License (ODbL)</a>'
     });
 
+    const outlineGeoJson = JSON.parse(thehood_data.outlineGeoJson);
+    const outlineStyle = {
+        "color": "#000000",
+        "weight": 0
+    };
+    const outlineLayer = L.geoJSON(outlineGeoJson, {
+        style: outlineStyle,
+        invert: true
+    });
+
     const map = new L.map('map');
-    const locationsLayer = L.layerGroup();
+    const locationsLayer = L.layerGroup([outlineLayer]);
     const todayLayer = L.layerGroup([wikimediaLayer]);
 
     map.setView(thehood_data.center, thehood_data.initialZoom);

@@ -69,6 +69,21 @@ abstract class Customizer
             'transport' => 'refresh'
         ) );
     }
+
+    public static function register_outline_geojson( $wp_customize ) {
+        $wp_customize->add_setting( 'hood_outline_geojson', array(
+            'default' => Settings::get_default( 'hood_outline_geojson' ),
+            'sanitize_callback' => 'sanitize_textarea_field',  
+            'type' => 'theme_mod',
+            'capability' => 'edit_theme_options',
+            'transport' => 'refresh'
+        ) );
+        $wp_customize->add_control( 'hood_outline_geojson', array(
+            'label' => __( 'Outline GeoJSON' ),
+            'type' => 'textarea',
+            'section' => 'static_front_page',
+        ) );
+    }
     
     public static function sanitize_float( $input ) {
         return filter_var($input, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
@@ -79,6 +94,7 @@ abstract class Customizer
         self::register_color_primary_dark( $wp_customize );
         self::register_initial_zoom_level( $wp_customize );
         self::register_map_center( $wp_customize );
+        self::register_outline_geojson( $wp_customize );
     }
 }
 

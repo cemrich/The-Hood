@@ -40,10 +40,11 @@ endwhile;
 
 $data = (object) [
     'isInteractable' => $is_map_interactable,
-    'posts'        => $post_arr,
-    'layers'       => $layer_arr,
-    'center'       => [ Settings::get_setting( 'map_center_lat' ), Settings::get_setting( 'map_center_lon' ) ],
-    'initialZoom'  => Settings::get_setting( 'initial_zoom_level' )
+    'posts'          => $post_arr,
+    'layers'         => $layer_arr,
+    'center'         => [ Settings::get_setting( 'map_center_lat' ), Settings::get_setting( 'map_center_lon' ) ],
+    'initialZoom'    => Settings::get_setting( 'initial_zoom_level' ),
+    'outlineGeoJson' => Settings::get_setting( 'hood_outline_geojson' )
 ];
 
 ?>
