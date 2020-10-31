@@ -4,20 +4,16 @@
 
     <?php get_header(); ?>
 
-    <?php 
-        $is_map_interactable = !is_singular() && !is_page();
-    ?>
-
     <div id="content-area">
 
-        <div id="map" <?php if ($is_map_interactable) echo "data-interactable"; ?>></div>
+        <div id="map"></div>
         
         <div id="main-wrapper">
             <main>
                 
                 <?php while ( have_posts() ) : the_post(); ?>
                     <article data-post-id="<?php the_ID() ?>">
-                        <h2><?php the_title(); ?></h2>
+                        <h2><?php the_title(); ?></h2><a href="#" class="btn-close">X</a>
                         <?php the_content(); ?>
                     </article>
                 <?php endwhile; ?>

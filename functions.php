@@ -9,6 +9,19 @@ include 'src/Nav_Menus.php';
 include 'src/Customizer.php';
 
 
+function add_body_classes($classes) {
+    global $is_map_interactable;
+    $is_map_interactable = !is_singular() && !is_page();
+
+    if ($is_map_interactable) {
+        $classes[] = 'interactable-map';
+    }
+    return $classes;
+}
+
+add_filter('body_class','add_body_classes');
+
+
 function admin_scripts_and_styles() {
     wp_enqueue_script('admin-scripts', get_template_directory_uri().'/js/admin.js');
     wp_enqueue_style('admin-styles', get_template_directory_uri().'/css/admin.css');

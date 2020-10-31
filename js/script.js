@@ -70,6 +70,22 @@
         layerGroup.setZIndex(10);
     }
 
+    function onArticleCloseButtonClick() {
+        hidePostOverlays();
+    }
+
+    function onMainWrapperClick(e) {
+        var targetElement = e.target;
+            do {
+                if (targetElement.localName == 'article') {
+                    return;
+                }
+                targetElement = targetElement.parentNode;
+            } while (targetElement);
+
+            hidePostOverlays();
+    }
+
     if (thehood_data.isInteractable) {
         hidePostOverlays();
 
@@ -79,17 +95,11 @@
 
         thehood_data.layers.forEach(displayLayer);
 
-        document.querySelector('#main-wrapper').addEventListener('click', function (e) {
-            var targetElement = e.target;
-            do {
-                if (targetElement.localName == 'article') {
-                    return;
-                }
-                targetElement = targetElement.parentNode;
-            } while (targetElement);
-
-            hidePostOverlays();
+        document.querySelectorAll('article .btn-close').forEach(function (btn) {
+            btn.addEventListener('click', onArticleCloseButtonClick);
         });
+
+        document.querySelector('#main-wrapper').addEventListener('click', onMainWrapperClick);
     }
 
 })();

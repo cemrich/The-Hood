@@ -9,6 +9,6 @@
     bottom: 0;
 }
 
-#map:not([data-interactable]) .leaflet-control-container {
+body:not(.interactable-map) .leaflet-control-container {
     display: none;
 }

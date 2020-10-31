@@ -108,6 +108,7 @@ main {
 }
 
 article {
+    position: relative;
     background-color: white;
     margin-bottom: 1em;
     padding-left: 1.5em;
@@ -117,6 +118,16 @@ article {
     border-radius: 4px;
     border: 2px solid rgba(0,0,0,0.2);
     background-clip: padding-box;
+}
+
+article .btn-close {
+    position: absolute;
+    right: 1.5em;
+    top: 1.5em;
+}
+
+body:not(.interactable-map) article .btn-close {
+    display: none;
 }
 
 
