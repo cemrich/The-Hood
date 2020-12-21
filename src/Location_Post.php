@@ -17,14 +17,15 @@ abstract class Location_Post
                 'rewrite'               => array('slug' => 'locations'),
                 'supports'              => array('title', 'editor', 'revisions', 'custom-fields'),
                 'can_export'            => true,
-                'capability_type'       => 'post',
+                'capability_type'       => self::LOCATION_POST_TYPE,
                 'show_ui'               => true,
                 'show_in_menu'          => true,
                 'show_in_nav_menus'     => true,
                 'show_in_admin_bar'     => true,
                 'show_in_rest'          => true,
                 'menu_icon'             => 'dashicons-location',
-                'taxonomies'            => array('category')
+                'taxonomies'            => array('category'),
+                'map_meta_cap'          => true
             )
         );
     }
